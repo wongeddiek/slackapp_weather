@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "A Slack Weatherbot App",
   "main": "app.js",
-  "dependencies": {},
+  "dependencies": {
+    "beepboop-botkit": "^1.4.1",
+    "botkit": "^0.5.8",
+    "request": "^2.81.0"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

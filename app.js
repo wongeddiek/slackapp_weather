@@ -4,6 +4,8 @@
 const Botkit = require('botkit');
 //request for API requests
 const request = require('request');
+//beepboop's library
+const BeepBoop = require('beepboop-botkit');
 //read/write local json file
 // const fs = require('fs');
 // const google = require('google');
@@ -78,10 +80,15 @@ function getWeather(city, convo){
     }
   });
 }
+
 // connect the bot to a stream of messages
-controller.spawn({
-  token: process.env.SLACK_API_TOKEN, //use your own slackbot token here
-}).startRTM();
+// controller.spawn({
+//   token: process.env.SLACK_API_TOKEN, //use your own slackbot token here
+// }).startRTM();
+
+const beepboop = BeepBoop.start(controller, {
+  debug: false //you might want to enable debug for testing :)
+});
 
 //runs when bot receives dm's and mentions with keyword "weather"
 controller.hears([/weather/i], ['direct_message','direct_mention','mention'], function(bot,message) {
